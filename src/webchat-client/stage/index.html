@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/markdown-it/dist/markdown-it.min.js"
+    ></script>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+  </head>
+  <body>
+    <div id="chat-widget"></div>
+    <script>
+      // Get the value of CECID (replace 'abcdefg' with your desired value)
+      const cecidValue = "dsathees";
+      const position = '{ "right": 24, "bottom": 24 }';
+      const systemID = "CCW";
+
+      // Create the URLSearchParams object and append the CECID parameter
+      const params = new URLSearchParams();
+      params.append("CECID", cecidValue);
+      params.append("position", position);
+      params.append("systemID", systemID);
+      // Create the script tag and set its src with the parameters
+      const scriptTag = document.createElement("script");
+      scriptTag.src = `https://ibpm-stage.cisco.com/ChatClient.js?${params.toString()}`;
+      console.log(scriptTag.src);
+      scriptTag.setAttribute("chat-widget", ""); // Add any additional attributes if needed
+
+      // Append the script tag to the body
+      document.body.appendChild(scriptTag);
+    </script>
+  </body>
+</html> 
